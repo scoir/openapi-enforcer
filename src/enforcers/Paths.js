@@ -118,14 +118,14 @@ module.exports = {
                 pathParsers[pathLength].push(parser);
             });
 
-            const equivalencyException = exception.nest('Equivalent paths are not allowed');
-            Object.keys(pathEquivalencies).forEach(key => {
-                const array = pathEquivalencies[key];
-                if (array.length > 1) {
-                    const conflicts = equivalencyException.nest('Equivalent paths:');
-                    array.forEach(err => conflicts.push(err));
-                }
-            });
+            // const equivalencyException = exception.nest('Equivalent paths are not allowed');
+            // Object.keys(pathEquivalencies).forEach(key => {
+            //     const array = pathEquivalencies[key];
+            //     if (array.length > 1) {
+            //         const conflicts = equivalencyException.nest('Equivalent paths:');
+            //         array.forEach(err => conflicts.push(err));
+            //     }
+            // });
 
             Object.keys(pathParsers).forEach(key => {
                 pathParsers[key].sort((a, b) => a.weight < b.weight ? -1 : 1);
